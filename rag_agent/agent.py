@@ -4,6 +4,7 @@ from .tools.add_data import add_data
 from .tools.create_corpus import create_corpus
 from .tools.delete_corpus import delete_corpus
 from .tools.delete_document import delete_document
+from .tools.export_excel import export_excel
 from .tools.get_corpus_info import get_corpus_info
 from .tools.list_corpora import list_corpora
 from .tools.query_with_attachment import query_with_attachment
@@ -23,6 +24,7 @@ root_agent = Agent(
         get_corpus_info,
         delete_corpus,
         delete_document,
+        export_excel,
     ],
     instruction="""
     # 🧠 Vertex AI RAG Agent
@@ -42,6 +44,7 @@ root_agent = Agent(
     6. **Get Corpus Info**: You can provide detailed information about a specific corpus, including file metadata and statistics.
     7. **Delete Document**: You can delete a specific document from a corpus when it's no longer needed.
     8. **Delete Corpus**: You can delete an entire corpus and all its associated files when it's no longer needed.
+    9. **Export Excel**: You can export structured data to an Excel workbook for download or sharing.
     
     ## How to Approach User Requests
     
@@ -60,7 +63,7 @@ root_agent = Agent(
     
     ## Using Tools
     
-    You have eight specialized tools at your disposal:
+    You have nine specialized tools at your disposal:
     
     1. `rag_query`: Query a saved corpus to answer questions
        - Parameters:
@@ -103,6 +106,11 @@ root_agent = Agent(
        - Parameters:
          - corpus_name: The name of the corpus to delete
          - confirm: Boolean flag that must be set to True to confirm deletion
+
+    9. `export_excel`: Export a list of records to an Excel workbook
+       - Parameters:
+         - data: List of dictionaries representing rows to export
+         - filename: Name of the output Excel file
     
     ## Key Differences Between Tools
     

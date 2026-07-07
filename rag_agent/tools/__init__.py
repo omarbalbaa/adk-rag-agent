@@ -6,6 +6,7 @@ from .add_data import add_data
 from .create_corpus import create_corpus
 from .delete_corpus import delete_corpus
 from .delete_document import delete_document
+from .export_excel import export_excel
 from .get_corpus_info import get_corpus_info
 from .list_corpora import list_corpora
 from .rag_query import rag_query
@@ -23,6 +24,7 @@ __all__ = [
     "get_corpus_info",
     "delete_corpus",
     "delete_document",
+    "export_excel",
     "check_corpus_exists",
     "get_corpus_resource_name",
     "set_current_corpus",
